@@ -1,12 +1,13 @@
 import logo from '../../assets/Logo.svg';
 import { Nav } from '../../features/Nav/Nav';
+import './Footer.css';
 
 export const Footer = () => {
     return (
         <footer>
             <img src={logo} alt="Little Lemon Logo" />
-            <p>&copy; 2025 Little Lemon. All rights reserved.</p>
             <section>
+                <h2>Doormat Navigation</h2>
                 <Nav />
             </section>
             <section>
@@ -18,7 +19,7 @@ export const Footer = () => {
                 </p>
             </section>
             <section>
-                <p>Follow us on social media!</p>
+                <h2>Social Media Links</h2>
                 <nav>
                     <ul>
                         <li><a href='https://www.facebook.com'>Facebook</a></li>
