@@ -1,7 +1,7 @@
 import './App.css';
-import { Footer } from './features/Footer';
-import { Main } from './features/Main';
-import { Nav } from './features/Nav';
+import { Footer } from './features/Footer/Footer';
+import { Main } from './features/Main/Main';
+import { Nav } from './features/Nav/Nav';
 
 function App() {
   return (
