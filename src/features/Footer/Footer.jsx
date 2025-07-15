@@ -21,8 +21,8 @@ export const Footer = () => {
                 <p>Follow us on social media!</p>
                 <nav>
                     <ul>
-                        <li><a>Facebook</a></li>
-                        <li><a>Instagram</a></li>
+                        <li><a href='https://www.facebook.com'>Facebook</a></li>
+                        <li><a href='https://www.instagram.com'>Instagram</a></li>
                     </ul>
                 </nav>
             </section>
