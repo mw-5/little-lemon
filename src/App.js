@@ -6,12 +6,12 @@ import { Header } from './features/Header/Header';
 
 function App() {
   return (
-    <>
+    <div className="container">
       <Header />
       <Nav />
       <Main />
       <Footer />
-    </>
+    </div>
   );
 }
 
