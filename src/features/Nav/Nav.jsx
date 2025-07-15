@@ -1,7 +1,9 @@
-export const Nav = () => {
+import './Nav.css';
+
+export const Nav = ({ className }) => {
     return (
         <nav>
-            <ul>
+            <ul className={className}>
                 <li><a>Home</a></li>
                 <li><a>About</a></li>
                 <li><a>Menu</a></li>
