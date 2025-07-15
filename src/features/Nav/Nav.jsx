@@ -2,12 +2,12 @@ export const Nav = () => {
     return (
         <nav>
             <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Menu</li>
-                <li>Reservations</li>
-                <li>Order Online</li>
-                <li>Login</li>
+                <li><a>Home</a></li>
+                <li><a>About</a></li>
+                <li><a>Menu</a></li>
+                <li><a>Reservations</a></li>
+                <li><a>Order Online</a></li>
+                <li><a>Login</a></li>
             </ul>
         </nav>
     );
