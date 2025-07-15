@@ -1,4 +1,5 @@
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/Logo.svg';
+import { Nav } from '../../features/Nav/Nav';
 
 export const Footer = () => {
     return (
@@ -11,8 +12,8 @@ export const Footer = () => {
             <section>
                 <h2>Contact</h2>
                 <p>
-                    address: 1st street, Chicago<br>
-                    phone number: 123</br>
+                    address: 1st street, Chicago<br/>
+                    phone number: 123<br/>
                     email: <a href="mailto:little@lemon.com">little@lemon.com</a>
                 </p>
             </section>
