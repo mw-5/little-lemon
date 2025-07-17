@@ -1,12 +1,10 @@
 .nav-header {
     display: flex;
     flex-wrap: wrap;
-    list-style: none;
     gap: 1rem;
 }
 
 .nav-doormat {
     display: flex;
     flex-direction: column;
-    list-style: none;
 }
