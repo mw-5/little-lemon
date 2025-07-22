@@ -1,5 +1,5 @@
 import logo from '../../assets/Logo.svg';
-import { Nav } from '../../features/Nav/Nav';
+import { Nav } from '../../components/Nav/Nav';
 import './Footer.css';
 
 export const Footer = () => {
