@@ -96,6 +96,8 @@ button {
   font-family: 'Karla', sans-serif;
   font-size: 18pt;
   font-weight: 500;
+  padding: 1rem 2rem;
+  cursor: pointer;
 
   &:active {
     background-color: var(--primary-color-1);
