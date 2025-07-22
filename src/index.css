@@ -87,3 +87,23 @@ nav > ul > li {
 img {
   border-radius: var(--rounded-corners);
 }
+
+button {
+  background-color: var(--primary-color-2);
+  color: var(--secondary-color-4);
+  border: none;
+  border-radius: var(--rounded-corners);
+  font-family: 'Karla', sans-serif;
+  font-size: 18pt;
+  font-weight: 500;
+
+  &:active {
+    background-color: var(--primary-color-1);
+    color: var(--secondary-color-3);
+  }
+
+  &:disabled {
+    background-color: var(--secondary-color-1);
+    color: var(--secondary-color-4);
+  }
+}
