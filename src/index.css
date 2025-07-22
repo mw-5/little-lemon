@@ -5,6 +5,7 @@
   --secondary-color-2: #FBDABB;
   --secondary-color-3: #EDEFEE;
   --secondary-color-4: #333333;
+  --rounded-corners: 16px;
 }
 
 body {
@@ -84,5 +85,5 @@ nav > ul > li {
 }
 
 img {
-  border-radius: 12px;
+  border-radius: var(--rounded-corners);
 }
