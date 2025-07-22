@@ -2,3 +2,17 @@ footer {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
 }
+
+/* Smartphone */
+@media (max-width: 599px) {
+  footer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Tablet */
+@media (min-width: 600px) and (max-width: 899px) {
+  footer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
