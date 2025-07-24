@@ -35,6 +35,7 @@ h2, .sub-title {
 }
 
 /* Lead Text */
+button,
 .lead-text {
   font-family: 'Karla', sans-serif;
   font-size: 18pt;
@@ -93,9 +94,6 @@ button {
   color: var(--secondary-color-4);
   border: none;
   border-radius: var(--rounded-corners);
-  font-family: 'Karla', sans-serif;
-  font-size: 18pt;
-  font-weight: 500;
   padding: 1rem 2rem;
   cursor: pointer;
 
