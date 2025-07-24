@@ -23,13 +23,15 @@ code {
 }
 
 /* Display Title */
-h1, .display-title {
+h1,
+.display-title {
   font-family: 'Markazi Text', serif;
   font-size: 64pt;
 }
 
 /* SubTitle */
-h2, .sub-title {
+h2,
+.sub-title {
   font-family: 'Markazi Text', serif;
   font-size: 40pt;
 }
@@ -43,7 +45,8 @@ button,
 }
 
 /* Section Title */
-h3, .section-title {
+h3,
+.section-title {
   font-family: 'Karla', sans-serif;
   font-size: 20pt;
   font-weight: 800;
@@ -51,28 +54,32 @@ h3, .section-title {
 }
 
 /* Week Specials / Section Categories */
-h4, .section-categories {
+h4,
+.section-categories {
   font-family: 'Karla', sans-serif;
   font-size: 16pt;
   font-weight: 800;
 }
 
 /* Card Title */
-h5, .card-title {
+h5,
+.card-title {
   font-family: 'Karla', sans-serif;
   font-size: 18pt;
   font-weight: bold;
 }
 
 /* Paragraph Text */
-p, .paragraph-text {
+p,
+.paragraph-text {
   font-family: 'Karla', sans-serif;
   font-size: 16pt;
   line-height: 1.5;
 }
 
 /* Highlight Text */
-span, .highlight-text {
+span,
+.highlight-text {
   font-family: 'Karla', sans-serif;
   font-size: 16pt;
   font-weight: 500;
