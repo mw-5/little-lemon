@@ -1,4 +1,4 @@
-.main {
+.home-page {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 3fr 7fr 5fr 5fr;
