@@ -1,0 +1,9 @@
+.call-to-action {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    & > img {
+        grid-column: 2;
+        width: 500px;
+    }
+}
