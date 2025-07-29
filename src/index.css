@@ -26,7 +26,7 @@ code {
 h1,
 .display-title {
   font-family: 'Markazi Text', serif;
-  font-size: 64pt;
+  font-size: 64px;
   margin: 0;
 }
 
@@ -34,7 +34,7 @@ h1,
 h2,
 .sub-title {
   font-family: 'Markazi Text', serif;
-  font-size: 40pt;
+  font-size: 40px;
   margin: 0;
 }
 
@@ -42,7 +42,7 @@ h2,
 button,
 .lead-text {
   font-family: 'Karla', sans-serif;
-  font-size: 18pt;
+  font-size: 18px;
   font-weight: 500;
 }
 
@@ -50,7 +50,7 @@ button,
 h3,
 .section-title {
   font-family: 'Karla', sans-serif;
-  font-size: 20pt;
+  font-size: 20px;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -59,7 +59,7 @@ h3,
 h4,
 .section-categories {
   font-family: 'Karla', sans-serif;
-  font-size: 16pt;
+  font-size: 16px;
   font-weight: 800;
 }
 
@@ -67,7 +67,7 @@ h4,
 h5,
 .card-title {
   font-family: 'Karla', sans-serif;
-  font-size: 18pt;
+  font-size: 18px;
   font-weight: bold;
 }
 
@@ -75,7 +75,7 @@ h5,
 p,
 .paragraph-text {
   font-family: 'Karla', sans-serif;
-  font-size: 16pt;
+  font-size: 16px;
   line-height: 1.5;
   max-width: 65rem;;
 }
@@ -84,14 +84,14 @@ p,
 span,
 .highlight-text {
   font-family: 'Karla', sans-serif;
-  font-size: 16pt;
+  font-size: 16px;
   font-weight: 500;
 }
 
 nav > ul > li {
   list-style: none;
   font-family: 'Karla', sans-serif;
-  font-size: 18pt;
+  font-size: 18px;
   font-weight: 500;
 }
 
