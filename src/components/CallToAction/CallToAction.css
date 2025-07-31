@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10%;
+    background-color: var(--primary-color-1);
 
     & > img {
         grid-column: 2;
