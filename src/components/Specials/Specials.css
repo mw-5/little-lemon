@@ -1,0 +1,22 @@
+.specials {
+    & > h1 {
+        grid-column: span 9;
+    }
+    & > button {
+        grid-column: span 3;
+        justify-self: end;
+        align-self: center;
+    }
+
+}
+
+@media (max-width: 1024px) {
+    .specials {
+        & > h1,
+        & > button {
+            grid-column: 1 / -1;
+            justify-self: center;
+            text-align: center;
+        }
+    }
+}
