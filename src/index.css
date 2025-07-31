@@ -6,7 +6,7 @@
   --secondary-color-3: #EDEFEE;
   --secondary-color-4: #333333;
   --rounded-corners: 16px;
-  --app-padding: 20%;
+  --app-padding: 0%;
 }
 
 body {
@@ -42,6 +42,7 @@ code {
 @media (min-width: 600px) and (max-width: 899px) {
   .container {
     grid-template-columns: repeat(6, 1fr);
+    --app-padding: 5%;
   }
 }
 
@@ -49,6 +50,7 @@ code {
 @media (min-width: 900px) {
   .container {
     grid-template-columns: repeat(12, 1fr);
+    --app-padding: 20%;
   }
 }
 
