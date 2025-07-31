@@ -8,5 +8,7 @@
         height: 50%;
         object-fit: cover;
         object-position: center;
+        position: relative;
+        top: 10%
     }
 }
