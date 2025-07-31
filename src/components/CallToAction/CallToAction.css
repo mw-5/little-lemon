@@ -11,4 +11,13 @@
         position: relative;
         top: 10%
     }
+
+    h1 {
+        color: var(--primary-color-2);
+    }
+
+    h2,
+    p {
+        color: var(--secondary-color-3);
+    }
 }
