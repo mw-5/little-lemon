@@ -124,9 +124,7 @@ span,
   font-weight: 500;
 }
 
-nav > ul > li {
-  list-style: none;
-}
+
 
 img {
   border-radius: var(--rounded-corners);
