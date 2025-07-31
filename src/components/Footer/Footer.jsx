@@ -4,7 +4,7 @@ import './Footer.css';
 
 export const Footer = () => {
     return (
-        <footer>
+        <footer className='container'>
             <img src={logo} alt="Little Lemon Logo" />
             <section>
                 <h2>Doormat Navigation</h2>
