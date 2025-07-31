@@ -1,4 +1,4 @@
-import logo from '../../assets/Logo.svg';
+import logo from '../../assets/Logo blue background.PNG';
 import { Nav } from '../../components/Nav/Nav';
 import './Footer.css';
 
