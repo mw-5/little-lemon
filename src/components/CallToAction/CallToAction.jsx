@@ -5,10 +5,10 @@ export const CallToAction = () => {
     return (
         <section className='call-to-action'>
             <div>
-            <h1>Little Lemon</h1>
-            <h2>Chicago</h2>
-            <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
-            <button>Reserve a table</button>
+                <h1>Little&nbsp;Lemon</h1>
+                <h2>Chicago</h2>
+                <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
+                <button>Reserve a table</button>
             </div>
             <img src={hero} alt="Image of bruchetta"></img>
         </section>
