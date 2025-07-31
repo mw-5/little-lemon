@@ -1,4 +1,6 @@
 footer {
+  background-color: var(--primary-color-1);
+  
   & > section,
   & > img {
     grid-column: span 3;
