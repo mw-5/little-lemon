@@ -123,6 +123,8 @@ p,
   font-size: 16px;
   line-height: 1.5;
   max-width: 65rem;;
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
 }
 
 /* Highlight Text */
