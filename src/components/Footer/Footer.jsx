@@ -8,7 +8,7 @@ export const Footer = () => {
             <img src={logo} alt="Little Lemon Logo" />
             <section>
                 <h4>Doormat Navigation</h4>
-                <Nav className='nav-doormat' />
+                <Nav className='nav-footer' />
             </section>
             <section>
                 <h4>Contact</h4>
@@ -21,7 +21,7 @@ export const Footer = () => {
             <section>
                 <h4>Social Media Links</h4>
                 <nav>
-                    <ul className='nav-doormat'>
+                    <ul className='nav-footer'>
                         <li><a href='https://www.facebook.com'>Facebook</a></li>
                         <li><a href='https://www.instagram.com'>Instagram</a></li>
                     </ul>

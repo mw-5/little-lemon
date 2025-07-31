@@ -4,7 +4,7 @@
     gap: 1rem;
 }
 
-.nav-doormat {
+.nav-footer {
     display: flex;
     flex-direction: column;
 }
