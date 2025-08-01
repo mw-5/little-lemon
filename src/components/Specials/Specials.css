@@ -1,4 +1,7 @@
 .specials {
+    margin: 4rem 0 4rem 0;
+    gap: 2rem;
+
     & > h1 {
         grid-column: span 9;
     }
@@ -7,7 +10,9 @@
         justify-self: end;
         align-self: center;
     }
-
+    article {
+        grid-column: span 4;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -17,6 +22,17 @@
             grid-column: 1 / -1;
             justify-self: center;
             text-align: center;
+        }
+        article {
+            grid-column: span 3;
+        }
+    }
+}
+
+@media (max-width: 599px) {
+    .specials {
+        article {
+            grid-column: 1 / -1;
         }
     }
 }
