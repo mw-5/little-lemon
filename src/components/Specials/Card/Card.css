@@ -1,2 +1,24 @@
 .specials-card {
+    & > img {
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        /* Remove whitespace between image and div */
+        position: relative;
+        top: 1%;
+    }
+    & > div {
+        background-color: var(--secondary-color-3);
+        padding: 2rem;
+    }
+    span {
+        color: var(--secondary-color-1);
+    }
+    p {
+        height: 10.5rem;
+        overflow: hidden;
+        color: var(--primary-color-1);
+        margin-top: 3rem;
+    }
 }
