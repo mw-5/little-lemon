@@ -1,17 +1,13 @@
 import './Card.css'
 import delivery from '../../../assets/Delivery.svg';
 
-const flexbox = {
+const flexRow = {
 	display: 'flex',
 	flexDirection: 'row'
 }
 const spread = {
-	...flexbox,
+	...flexRow,
 	justifyContent: 'space-between'
-}
-const flow = {
-	...flexbox,
-	justifyContent: 'flex-start',
 }
 
 export const Card = ({ id, image, title, price, description }) => {
@@ -24,7 +20,7 @@ export const Card = ({ id, image, title, price, description }) => {
 					<span>{price}</span>
 				</div>
 				<p>{description}</p>
-				<div className='lead-text' style={flow}>
+				<div className='lead-text' style={flexRow}>
 					Order a delivery&nbsp;
 					<img src={delivery} alt='Image of a scooter' />
 				</div>
