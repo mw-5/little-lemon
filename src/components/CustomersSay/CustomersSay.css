@@ -1,0 +1,24 @@
+.customers-say {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    gap: 2rem;
+    background-color: var(--primary-color-1);
+    color: var(--secondary-color-3);
+
+    & > h1 {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    article {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 599px) {
+    .customers-say {
+        article {
+            grid-column: 1 / -1;
+        }
+    }
+}
