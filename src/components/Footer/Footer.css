@@ -3,6 +3,9 @@ footer {
   color: var(--secondary-color-3);
   padding: 1rem;
 
+  a {
+    color: var(--secondary-color-3);
+  }
   & > section,
   & > img {
     grid-column: span 3;
