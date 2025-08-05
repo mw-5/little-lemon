@@ -5,7 +5,7 @@ import { Location } from "../../components/Location/Location";
 
 export const HomePage = () => {
     return (
-        <main className="home-page">
+        <main>
             <CallToAction />
             <Specials />
             <CustomersSay />
