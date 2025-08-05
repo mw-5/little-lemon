@@ -13,9 +13,11 @@ export const Footer = () => {
             <section>
                 <h4>Contact</h4>
                 <p>
-                    address: 1st street, Chicago<br/>
-                    phone number: 123<br/>
-                    email: <a href="mailto:little@lemon.com">little@lemon.com</a>
+                    4257 West Huron Street<br/>
+                    Chicago, IL 60624<br/>
+                    USA<br/>
+                    ☏ (312) 555-1482<br/>
+                    <a href="mailto:little@lemon.com">little@lemon.com</a>
                 </p>
             </section>
             <section>
