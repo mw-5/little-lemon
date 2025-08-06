@@ -7,7 +7,7 @@ export const Nav = ({ className }) => {
         <nav>
             <ul className={className}>
                 <li><Link to="/">Home</Link></li>
-                <li><a>About</a></li>
+                <li><Link to="/#about">About</Link></li>
                 <li><a>Menu</a></li>
                 <li><Link to="/booking">Reservations</Link></li>
                 <li><a>Order Online</a></li>

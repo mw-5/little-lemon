@@ -4,7 +4,7 @@ import imageB from '../../assets/restaurant chef B.jpg';
 
 export const Location = () => {
     return (
-        <section className='container location'>
+        <section id='about' className='container location'>
             <article>
                 <h1>Little&nbsp;Lemon</h1>
                 <h2>Chicago</h2>
