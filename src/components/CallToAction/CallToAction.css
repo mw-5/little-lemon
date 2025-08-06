@@ -3,7 +3,7 @@
     grid-template-columns: repeat(2, 1fr);
     background-color: var(--primary-color-1);
 
-    & > div {
+    & > article {
         align-self: center;
         padding-bottom: 1rem;
     }
