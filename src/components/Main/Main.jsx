@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { HomePage } from '../../pages/HomePage/HomePage';
 import { BookingPage } from '../../pages/BookingPage/BookingPage';
+import { ComingSoonPage } from '../../pages/ComingSoonPage/ComingSoonPage';
 
 export const Main = () => {
     return (
@@ -10,6 +11,7 @@ export const Main = () => {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/booking" element={<BookingPage />} />
+                <Route path="*" element={<ComingSoonPage />} />
             </Routes>
         </>
     );
