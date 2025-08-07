@@ -6,24 +6,29 @@ const style = {
     gap: '20px'
 };
 
-export const BookingForm = () => {
+export const BookingForm = ({ availableTimes, dispatch }) => {
     const [date, setDate] = useState('');
     const [time, setTime] = useState('17:00');
-    const [availableTimes] = useState([
-        '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-    ]);
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState('Birthday');
     const [occasions] = useState(['Birthday', 'Anniversary']);
 
+    const handleDateChange = e => {
+        setDate(e.target.value);
+        dispatch({
+            type: 'UPDATE_TIMES',
+            payload: e.target.value
+        });
+    }
+
     return (
-        <form style={style}>
+        <form style={style} aria-label='Table reservation form'>
             <label htmlFor="res-date">Choose date</label>
             <input
                 id="res-date"
                 type="date"
                 value={date}
-                onChange={e => setDate(e.target.value)} />
+                onChange={handleDateChange} />
 
             <label htmlFor="res-time">Choose time</label>
             <select
@@ -55,7 +60,7 @@ export const BookingForm = () => {
                 ))}
             </select>
 
-            <input type="submit" value="Make Your reservation" />
+            <input type="submit" value="Make Your reservation" aria-label='Submit reservation' />
         </form>
     );
 }
