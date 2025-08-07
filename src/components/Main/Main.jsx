@@ -4,7 +4,7 @@ import { HomePage } from '../../pages/HomePage/HomePage';
 import { BookingPage } from '../../pages/BookingPage/BookingPage';
 import { ComingSoonPage } from '../../pages/ComingSoonPage/ComingSoonPage';
 
-const updateTimes = (state, action) => {
+export const updateTimes = (state, action) => {
     switch (action.type) {
         case 'UPDATE_TIMES':
             // Logic to update available times based on the selected date
@@ -14,7 +14,7 @@ const updateTimes = (state, action) => {
             return state;
     }
 };
-const initializeTimes = () => [
+export const initializeTimes = () => [
     '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
 ];
 
