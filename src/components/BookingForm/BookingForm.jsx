@@ -1,10 +1,5 @@
 import { useState } from 'react';
-
-const style = {
-    display: 'grid',
-    maxWidth: '200px',
-    gap: '20px'
-};
+import './BookingForm.css';
 
 export const BookingForm = ({ availableTimes, dispatch }) => {
     const [date, setDate] = useState('');
@@ -22,7 +17,7 @@ export const BookingForm = ({ availableTimes, dispatch }) => {
     }
 
     return (
-        <form style={style} aria-label='Table reservation form'>
+        <form className='booking-form' aria-label='Table reservation form'>
             <label htmlFor="res-date">Choose date</label>
             <input
                 id="res-date"
