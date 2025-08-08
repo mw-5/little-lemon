@@ -1,10 +1,10 @@
 import { useEffect, useReducer } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom';
 import { HomePage } from '../../pages/HomePage/HomePage';
 import { BookingPage } from '../../pages/BookingPage/BookingPage';
 import { ComingSoonPage } from '../../pages/ComingSoonPage/ComingSoonPage';
 import { ConfirmedBookingPage } from '../../pages/ConfirmedBookingPage/ConfirmedBookingPage';
-import { fetchAPI } from '../../utils/api';
+import { fetchAPI, submitAPI } from '../../utils/api';
 
 export const updateTimes = (state, action) => {
     switch (action.type) {
@@ -18,11 +18,20 @@ export const initializeTimes = () => {
     return fetchAPI(new Date());
 }
 
+
 export const Main = () => {
     const [availableTimes, dispatch] = useReducer(
         updateTimes,
         initializeTimes()
     );
+    const navigate = useNavigate();
+
+    const submitForm = (formData) => {
+        const isSuccess = submitAPI(formData);
+        if (isSuccess) {
+            navigate('/confirmed-booking');
+        }
+    }
 
     return (
         <>
@@ -32,7 +41,8 @@ export const Main = () => {
                 <Route path="/booking" element={
                     <BookingPage
                         availableTimes={availableTimes}
-                        dispatch={dispatch} />
+                        dispatch={dispatch}
+                        submitForm={submitForm} />
                 } />
                 <Route path="/confirmed-booking" element={<ConfirmedBookingPage />} />
                 <Route path="*" element={<ComingSoonPage />} />
