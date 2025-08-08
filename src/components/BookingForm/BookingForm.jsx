@@ -1,76 +1,100 @@
-import { useState } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import './BookingForm.css';
 
+const occasionsList = ['Birthday', 'Anniversary'];
+
+const BookingSchema = Yup.object().shape({
+    date: Yup.string().required('Please choose a date.'),
+    time: Yup.string().required('Please choose a time.'),
+    guests: Yup.number()
+        .min(1, 'At least 1 guest')
+        .max(10, 'Maximum 10 guests')
+        .required('Please enter number of guests'),
+    occasion: Yup.string().required('Please choose an occasion.')
+});
+
 export const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('17:00');
-    const [guests, setGuests] = useState(1);
-    const [occasion, setOccasion] = useState('Birthday');
-    const [occasions] = useState(['Birthday', 'Anniversary']);
+    const initialValues = {
+        date: '',
+        time: '17:00',
+        guests: 1,
+        occasion: occasionsList[0]
+    };
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        const formData = {
-            date,
-            time,
-            guests: parseInt(guests, 10),
-            occasion
-        };
-        submitForm(formData);
-    }
-
-    const handleDateChange = e => {
-        setDate(e.target.value);
+    const handleDateChange = (setFieldValue, value) => {
+        setFieldValue('date', value);
         dispatch({
             type: 'UPDATE_TIMES',
-            payload: new Date(e.target.value)
+            payload: new Date(value)
         });
-    }
+    };
 
     return (
-        <form onSubmit={handleSubmit} className='booking-form' aria-label='Table reservation form'>
-            <label htmlFor="res-date">Choose date</label>
-            <input
-                id="res-date"
-                type="date"
-                required
-                value={date}
-                onChange={handleDateChange} />
+        <Formik
+            initialValues={initialValues}
+            validationSchema={BookingSchema}
+            onSubmit={(values, { setSubmitting }) => {
+                submitForm({
+                    ...values,
+                    guests: parseInt(values.guests, 10)
+                });
+                setSubmitting(false);
+            }}
+        >
+            {({ setFieldValue, values, isSubmitting }) => (
+                <Form className='booking-form' aria-label='Table reservation form' noValidate>
+                    <label htmlFor="res-date">Choose date</label>
+                    <Field
+                        id="res-date"
+                        name="date"
+                        type="date"
+                        required
+                        value={values.date}
+                        onChange={e => handleDateChange(setFieldValue, e.target.value)}
+                    />
+                    <ErrorMessage name="date" component="span" className="error" />
 
-            <label htmlFor="res-time">Choose time</label>
-            <select
-                id="res-time"
-                required
-                value={time}
-                onChange={e => setTime(e.target.value)}>
-                {availableTimes.map(time => (
-                    <option key={time} value={time}>{time}</option>
-                ))}
-            </select>
+                    <label htmlFor="res-time">Choose time</label>
+                    <Field
+                        as="select"
+                        id="res-time"
+                        name="time"
+                        required
+                    >
+                        {availableTimes.map(time => (
+                            <option key={time} value={time}>{time}</option>
+                        ))}
+                    </Field>
+                    <ErrorMessage name="time" component="span" className="error" />
 
-            <label htmlFor="guests">Number of guests</label>
-            <input
-                id="guests"
-                type="number"
-                placeholder="1"
-                min="1"
-                max="10"
-                required
-                value={guests}
-                onChange={e => setGuests(e.target.value)} />
+                    <label htmlFor="guests">Number of guests</label>
+                    <Field
+                        id="guests"
+                        name="guests"
+                        type="number"
+                        min="1"
+                        max="10"
+                        required
+                    />
+                    <ErrorMessage name="guests" component="span" className="error" />
 
-            <label htmlFor="occasion">Occasion</label>
-            <select
-                id="occasion"
-                required
-                value={occasion}
-                onChange={e => setOccasion(e.target.value)}>
-                {occasions.map(occasion => (
-                    <option key={occasion} value={occasion}>{occasion}</option>
-                ))}
-            </select>
+                    <label htmlFor="occasion">Occasion</label>
+                    <Field
+                        as="select"
+                        id="occasion"
+                        name="occasion"
+                        required
+                    >
+                        {occasionsList.map(occasion => (
+                            <option key={occasion} value={occasion}>{occasion}</option>
+                        ))}
+                    </Field>
+                    <ErrorMessage name="occasion" component="span" className="error" />
 
-            <input type="submit" value="Make Your reservation" aria-label='Submit reservation' />
-        </form>
+                    <input type="submit" value="Make Your reservation" disabled={isSubmitting} aria-label='Submit reservation' />
+                </Form>
+            )}
+        </Formik>
     );
 }
