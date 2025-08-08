@@ -8,9 +8,7 @@ import { fetchAPI } from '../../utils/api';
 export const updateTimes = (state, action) => {
     switch (action.type) {
         case 'UPDATE_TIMES':
-            // Logic to update available times based on the selected date
-            // For simplicity, unchanged state is returned here
-            return state;
+            return fetchAPI(action.payload);
         default:
             return state;
     }

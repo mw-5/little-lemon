@@ -13,10 +13,11 @@ export const BookingForm = ({ availableTimes, dispatch }) => {
     }
 
     const handleDateChange = e => {
-        setDate(e.target.value);
+        const selectedDate = new Date(e.target.value);
+        setDate(selectedDate);
         dispatch({
             type: 'UPDATE_TIMES',
-            payload: e.target.value
+            payload: selectedDate
         });
     }
 
