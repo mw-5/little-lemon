@@ -33,12 +33,14 @@ export const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
             <input
                 id="res-date"
                 type="date"
+                required
                 value={date}
                 onChange={handleDateChange} />
 
             <label htmlFor="res-time">Choose time</label>
             <select
                 id="res-time"
+                required
                 value={time}
                 onChange={e => setTime(e.target.value)}>
                 {availableTimes.map(time => (
@@ -53,12 +55,14 @@ export const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
                 placeholder="1"
                 min="1"
                 max="10"
+                required
                 value={guests}
                 onChange={e => setGuests(e.target.value)} />
 
             <label htmlFor="occasion">Occasion</label>
             <select
                 id="occasion"
+                required
                 value={occasion}
                 onChange={e => setOccasion(e.target.value)}>
                 {occasions.map(occasion => (
