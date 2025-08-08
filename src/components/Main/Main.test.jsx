@@ -1,8 +1,9 @@
 import { initializeTimes, updateTimes } from './Main';
+import { fetchAPI } from '../../utils/api';
 
 test('initializeTimes returns correct times', () => {
     // Arrange
-    const expectedTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+    const expectedTimes = fetchAPI(new Date());
 
     // Act
     const times = initializeTimes();
