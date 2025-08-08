@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { HomePage } from '../../pages/HomePage/HomePage';
 import { BookingPage } from '../../pages/BookingPage/BookingPage';
 import { ComingSoonPage } from '../../pages/ComingSoonPage/ComingSoonPage';
+import { ConfirmedBookingPage } from '../../pages/ConfirmedBookingPage/ConfirmedBookingPage';
 import { fetchAPI } from '../../utils/api';
 
 export const updateTimes = (state, action) => {
@@ -33,6 +34,7 @@ export const Main = () => {
                         availableTimes={availableTimes}
                         dispatch={dispatch} />
                 } />
+                <Route path="/confirmed-booking" element={<ConfirmedBookingPage />} />
                 <Route path="*" element={<ComingSoonPage />} />
             </Routes>
         </>

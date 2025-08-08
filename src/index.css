@@ -164,3 +164,18 @@ button {
     color: var(--secondary-color-4);
   }
 }
+
+.msg {
+  background-color: var(--secondary-color-3);
+  padding: 8rem 0 8rem 0;
+
+  h1,
+  h2,
+  p {
+      grid-column: 1 / -1;
+      justify-self: center;
+  }
+  p {
+        color: var(--secondary-color-4);
+  }
+}
