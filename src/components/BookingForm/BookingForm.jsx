@@ -8,6 +8,10 @@ export const BookingForm = ({ availableTimes, dispatch }) => {
     const [occasion, setOccasion] = useState('Birthday');
     const [occasions] = useState(['Birthday', 'Anniversary']);
 
+    const handleSubmit = e => {
+        e.preventDefault();
+    }
+
     const handleDateChange = e => {
         setDate(e.target.value);
         dispatch({
@@ -17,7 +21,7 @@ export const BookingForm = ({ availableTimes, dispatch }) => {
     }
 
     return (
-        <form className='booking-form' aria-label='Table reservation form'>
+        <form onSubmit={handleSubmit} className='booking-form' aria-label='Table reservation form'>
             <label htmlFor="res-date">Choose date</label>
             <input
                 id="res-date"
