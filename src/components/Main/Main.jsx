@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { HomePage } from '../../pages/HomePage/HomePage';
 import { BookingPage } from '../../pages/BookingPage/BookingPage';
 import { ComingSoonPage } from '../../pages/ComingSoonPage/ComingSoonPage';
+import { fetchAPI } from '../../utils/api';
 
 export const updateTimes = (state, action) => {
     switch (action.type) {
@@ -14,9 +15,9 @@ export const updateTimes = (state, action) => {
             return state;
     }
 };
-export const initializeTimes = () => [
-    '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-];
+export const initializeTimes = () => {
+    return fetchAPI(new Date());
+}
 
 export const Main = () => {
     const [availableTimes, dispatch] = useReducer(
