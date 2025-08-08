@@ -1,0 +1,11 @@
+.booking-page {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 4rem;
+
+    h1 {
+        text-align: center;
+        margin: 1rem;
+    }
+}

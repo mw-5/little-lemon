@@ -179,3 +179,9 @@ button {
         color: var(--secondary-color-4);
   }
 }
+
+.error {
+  color: red;
+  background-color: var(--secondary-color-2);
+  padding: 4px;
+}

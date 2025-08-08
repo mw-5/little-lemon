@@ -1,8 +1,9 @@
+import './BookingPage.css';
 import { BookingForm } from "../../components/BookingForm/BookingForm";
 
 export const BookingPage = ({ availableTimes, dispatch, submitForm }) => {
     return (
-        <main>
+        <main className="container booking-page">
             <h1>Reserve a table</h1>
             <BookingForm
                 availableTimes={availableTimes}

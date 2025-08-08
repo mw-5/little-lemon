@@ -44,55 +44,59 @@ export const BookingForm = ({ availableTimes, dispatch, submitForm }) => {
         >
             {({ setFieldValue, values, isSubmitting }) => (
                 <Form className='booking-form' aria-label='Table reservation form' noValidate>
-                    <label htmlFor="res-date">Choose date</label>
-                    <Field
-                        id="res-date"
-                        name="date"
-                        type="date"
-                        required
-                        value={values.date}
-                        onChange={e => handleDateChange(setFieldValue, e.target.value)}
-                    />
-                    <ErrorMessage name="date" component="span" className="error" />
-
-                    <label htmlFor="res-time">Choose time</label>
-                    <Field
-                        as="select"
-                        id="res-time"
-                        name="time"
-                        required
-                    >
-                        {availableTimes.map(time => (
-                            <option key={time} value={time}>{time}</option>
-                        ))}
-                    </Field>
-                    <ErrorMessage name="time" component="span" className="error" />
-
-                    <label htmlFor="guests">Number of guests</label>
-                    <Field
-                        id="guests"
-                        name="guests"
-                        type="number"
-                        min="1"
-                        max="10"
-                        required
-                    />
-                    <ErrorMessage name="guests" component="span" className="error" />
-
-                    <label htmlFor="occasion">Occasion</label>
-                    <Field
-                        as="select"
-                        id="occasion"
-                        name="occasion"
-                        required
-                    >
-                        {occasionsList.map(occasion => (
-                            <option key={occasion} value={occasion}>{occasion}</option>
-                        ))}
-                    </Field>
-                    <ErrorMessage name="occasion" component="span" className="error" />
-
-                    <input type="submit" value="Make Your reservation" disabled={isSubmitting} aria-label='Submit reservation' />
+                    <fieldset>
+                        <label htmlFor="res-date">Choose date</label>
+                        <Field
+                            id="res-date"
+                            name="date"
+                            type="date"
+                            required
+                            value={values.date}
+                            onChange={e => handleDateChange(setFieldValue, e.target.value)}
+                        />
+                        <ErrorMessage name="date" component="span" className="error" />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="res-time">Choose time</label>
+                        <Field
+                            as="select"
+                            id="res-time"
+                            name="time"
+                            required
+                        >
+                            {availableTimes.map(time => (
+                                <option key={time} value={time}>{time}</option>
+                            ))}
+                        </Field>
+                        <ErrorMessage name="time" component="span" className="error" />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="guests">Number of guests</label>
+                        <Field
+                            id="guests"
+                            name="guests"
+                            type="number"
+                            min="1"
+                            max="10"
+                            required
+                        />
+                        <ErrorMessage name="guests" component="span" className="error" />
+                    </fieldset>
+                    <fieldset>
+                        <label htmlFor="occasion">Occasion</label>
+                        <Field
+                            as="select"
+                            id="occasion"
+                            name="occasion"
+                            required
+                        >
+                            {occasionsList.map(occasion => (
+                                <option key={occasion} value={occasion}>{occasion}</option>
+                            ))}
+                        </Field>
+                        <ErrorMessage name="occasion" component="span" className="error" />
+                    </fieldset>
+                    <button type="submit" disabled={isSubmitting} aria-label='Submit reservation'>Make&nbsp;your&nbsp;reservation</button>
                 </Form>
             )}
         </Formik>
