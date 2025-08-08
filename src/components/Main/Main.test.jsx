@@ -12,14 +12,14 @@ test('initializeTimes returns correct times', () => {
     expect(times).toEqual(expectedTimes);
 });
 
-test('updateTimes returns unchanged state', () => {
+test('updateTimes returns changed state', () => {
     // Arrange
     const initialState = ['17:00', '18:00'];
-    const action = { type: 'UPDATE_TIMES', payload: '2023-10-01' };
+    const action = { type: 'UPDATE_TIMES', payload: new Date() };
 
     // Act
     const newState = updateTimes(initialState, action);
 
     // Assert
-    expect(newState).toEqual(initialState);
+    expect(newState).not.toEqual(initialState);
 });
