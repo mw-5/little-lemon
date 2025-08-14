@@ -1,10 +1,34 @@
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import { BookingForm } from './/BookingForm';
 
+const setup = (props = {}) => {
+    const defaultProps = {
+        availableTimes: ['17:00', '18:00', '19:00'],
+        dispatch: jest.fn(),
+        submitForm: jest.fn(),
+        ...props
+    };
+    render(<BookingForm {...defaultProps} />);
+    return {
+        dateInput: screen.getByLabelText('Choose date'),
+        timeSelect: screen.getByLabelText('Choose time'),
+        guestsInput: screen.getByLabelText('Number of guests'),
+        occasionSelect: screen.getByLabelText('Occasion'),
+        submitButton: screen.getByRole('button', { name: /submit reservation/i }),
+        mockDispatch: defaultProps.dispatch,
+        mockSubmitForm: defaultProps.submitForm,
+        ...defaultProps
+    };
+}
+
+let controls;
+
+beforeEach(() => {
+    controls = setup();
+});
 
 test('Renders the booking form', () => {
     // Arrange
-    render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={() => {}} />);
     const dateLabel = screen.getByText("Choose date");
 
     // Assert
@@ -13,14 +37,7 @@ test('Renders the booking form', () => {
 
 test('User can submit form', async () => {
     // Arrange
-    const mockDispatch = jest.fn();
-    const mockSubmitForm = jest.fn();
-    render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={mockDispatch} submitForm={mockSubmitForm} />);
-    const dateInput = screen.getByLabelText('Choose date');
-    const timeSelect = screen.getByLabelText('Choose time');
-    const guestsInput = screen.getByLabelText('Number of guests');
-    const occasionSelect = screen.getByLabelText('Occasion');
-    const submitButton = screen.getByRole('button', { name: /submit reservation/i });
+    const { mockSubmitForm, dateInput, timeSelect, guestsInput, occasionSelect, submitButton } = controls;
 
     // Act
     await act(async () => {
@@ -38,14 +55,11 @@ test('User can submit form', async () => {
 
 test('Shows validation errors when submitting empty form', async () => {
     // Arrange
-    const mockSubmitForm = jest.fn();
-    render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={() => {}} submitForm={mockSubmitForm} />);
-    const submitButton = screen.getByRole('button', { name: /submit reservation/i });
-    const inputGuests = screen.getByLabelText('Number of guests');
+    const { mockSubmitForm, submitButton, guestsInput } = controls;
 
     // Act
     await act(async () => {
-        fireEvent.change(inputGuests, { target: { value: '0' } });
+        fireEvent.change(guestsInput, { target: { value: '0' } });
         fireEvent.click(submitButton);
     });
 
@@ -57,10 +71,7 @@ test('Shows validation errors when submitting empty form', async () => {
 describe('Date input', () => {
     it('Shows validation error when date is empty', async () => {
         // Arrange
-        const mockSubmitForm = jest.fn();
-        render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={() => {}} submitForm={mockSubmitForm} />);
-        const submitButton = screen.getByRole('button', { name: /submit reservation/i });
-        const dateInput = screen.getByLabelText('Choose date');
+        const { submitButton, dateInput } = controls;
 
         // Act
         await act(async () => {
@@ -74,10 +85,7 @@ describe('Date input', () => {
 
     it('Shows no validation error when date is valid', async () => {
         // Arrange
-        const mockSubmitForm = jest.fn();
-        render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={() => {}} submitForm={mockSubmitForm} />);
-        const submitButton = screen.getByRole('button', { name: /submit reservation/i });
-        const dateInput = screen.getByLabelText('Choose date');
+        const { submitButton, dateInput } = controls;
 
         // Act
         await act(async () => {
@@ -91,9 +99,7 @@ describe('Date input', () => {
 
     it('Calls Dispatch when date changes', async () => {
         // Arrange
-        const mockDispatch = jest.fn();
-        render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={mockDispatch} submitForm={() => {}} />);
-        const dateInput = screen.getByLabelText('Choose date');
+        const { mockDispatch, dateInput } = controls;
 
         // Act
         await act(async () => {
@@ -111,10 +117,7 @@ describe('Date input', () => {
 describe('Time input', () => {
     it('Shows validation error when time is not selected', async () => {
         // Arrange
-        const mockSubmitForm = jest.fn();
-        render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={() => {}} submitForm={mockSubmitForm} />);
-        const submitButton = screen.getByRole('button', { name: /submit reservation/i });
-        const timeSelect = screen.getByLabelText('Choose time');
+        const { submitButton, timeSelect } = controls;
 
         // Act
         await act(async () => {
@@ -128,10 +131,7 @@ describe('Time input', () => {
 
     it('Shows no validation error when time is selected', async () => {
         // Arrange
-        const mockSubmitForm = jest.fn();
-        render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={() => {}} submitForm={mockSubmitForm} />);
-        const submitButton = screen.getByRole('button', { name: /submit reservation/i });
-        const timeSelect = screen.getByLabelText('Choose time');
+        const { submitButton, timeSelect } = controls;
 
         // Act
         await act(async () => {
@@ -145,8 +145,7 @@ describe('Time input', () => {
 
     it('Renders available times', () => {
         // Arrange
-        render(<BookingForm availableTimes={['17:00', '18:00', '19:00']} dispatch={() => {}} />);
-        const timeSelect = screen.getByLabelText('Choose time');
+        const { timeSelect } = controls;
 
         // Assert
         expect(timeSelect).toHaveTextContent('17:00');
@@ -158,8 +157,7 @@ describe('Time input', () => {
 describe('Guests input', () => {
     it('Enforces min and max values', () => {
         // Arrange
-        render(<BookingForm availableTimes={['17:00']} dispatch={() => {}} />);
-        const guestsInput = screen.getByLabelText('Number of guests');
+        const { guestsInput } = controls;
 
         // Assert
         expect(guestsInput).toHaveAttribute('min', '1');
@@ -168,10 +166,7 @@ describe('Guests input', () => {
 
     it("Shows validation error when guests exceed maximum", async () => {
         // Arrange
-        const mockSubmitForm = jest.fn();
-        render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={() => {}} submitForm={mockSubmitForm} />);
-        const submitButton = screen.getByRole('button', { name: /submit reservation/i });
-        const guestsInput = screen.getByLabelText('Number of guests');
+        const { submitButton, guestsInput } = controls;
 
         // Act
         await act(async () => {
@@ -185,10 +180,7 @@ describe('Guests input', () => {
 
     it('Shows validation error when guests is less than minimum', async () => {
         // Arrange
-        const mockSubmitForm = jest.fn();
-        render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={() => {}} submitForm={mockSubmitForm} />);
-        const submitButton = screen.getByRole('button', { name: /submit reservation/i });
-        const guestsInput = screen.getByLabelText('Number of guests');
+        const { submitButton, guestsInput } = controls;
 
         // Act
         await act(async () => {
@@ -202,10 +194,7 @@ describe('Guests input', () => {
 
     it('Shows no validation error when guests is within range', async () => {
         // Arrange
-        const mockSubmitForm = jest.fn();
-        render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={() => {}} submitForm={mockSubmitForm} />);
-        const submitButton = screen.getByRole('button', { name: /submit reservation/i });
-        const guestsInput = screen.getByLabelText('Number of guests');
+        const { submitButton, guestsInput } = controls;
 
         // Act
         await act(async () => {
@@ -222,10 +211,7 @@ describe('Guests input', () => {
 describe('Occasion select', () => {
     it('Shows validation error when occasion is not selected', async () => {
         // Arrange
-        const mockSubmitForm = jest.fn();
-        render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={() => {}} submitForm={mockSubmitForm} />);
-        const submitButton = screen.getByRole('button', { name: /submit reservation/i });
-        const occasionSelect = screen.getByLabelText('Occasion');
+        const { submitButton, occasionSelect } = controls;
 
         // Act
         await act(async () => {
@@ -239,10 +225,7 @@ describe('Occasion select', () => {
 
     it('Shows no validation error when occasion is selected', async () => {
         // Arrange
-        const mockSubmitForm = jest.fn();
-        render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={() => {}} submitForm={mockSubmitForm} />);
-        const submitButton = screen.getByRole('button', { name: /submit reservation/i });
-        const occasionSelect = screen.getByLabelText('Occasion');
+        const { submitButton, occasionSelect } = controls;
 
         // Act
         await act(async () => {
@@ -256,10 +239,7 @@ describe('Occasion select', () => {
 
     it('Shows validation error when invalid occasion is selected', async () => {
         // Arrange
-        const mockSubmitForm = jest.fn();
-        render(<BookingForm availableTimes={['17:00', '18:00']} dispatch={() => {}} submitForm={mockSubmitForm} />);
-        const submitButton = screen.getByRole('button', { name: /submit reservation/i });
-        const occasionSelect = screen.getByLabelText('Occasion');
+        const { submitButton, occasionSelect } = controls;
 
         // Act
         await act(async () => {
@@ -273,8 +253,7 @@ describe('Occasion select', () => {
 
     it('Renders all occasions', () => {
         // Arrange
-        render(<BookingForm availableTimes={['17:00']} dispatch={() => {}} />);
-        const occasionSelect = screen.getByLabelText('Occasion');
+        const { occasionSelect } = controls;
 
         // Assert
         expect(occasionSelect).toHaveTextContent('Birthday');
