@@ -4,6 +4,7 @@ import { Card } from './Card/Card';
 import greekSalad from '../../assets/greek salad.jpg';
 import bruchetta from '../../assets/bruchetta.svg';
 import lemonDessert from '../../assets/lemon dessert.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const dishes = [
 	{
@@ -30,6 +31,8 @@ const dishes = [
 ];
 
 export const Specials = () => {
+	const navigate = useNavigate();
+
 	const cards = dishes.map(dish => {
 		return (
 			<Card key={dish.id} {...dish} />
@@ -39,7 +42,7 @@ export const Specials = () => {
 	return (
 		<section className="container specials">
 			<h1>This weeks specials!</h1>
-			<button>Online&nbsp;Menu</button>
+			<button onClick={() => navigate('/menu')}>Online&nbsp;Menu</button>
 			{cards}
 		</section>
 	)
