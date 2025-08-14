@@ -1,6 +1,7 @@
 import logo from '../../assets/Logo blue background.PNG';
 import { Nav } from '../../components/Nav/Nav';
 import './Footer.css';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
 
 export const Footer = () => {
     return (
@@ -23,9 +24,9 @@ export const Footer = () => {
             <section>
                 <h4>Social Media</h4>
                 <nav>
-                    <ul className='nav-footer'>
-                        <li><a href='https://www.facebook.com'>Facebook</a></li>
-                        <li><a href='https://www.instagram.com'>Instagram</a></li>
+                    <ul className='nav-header'>
+                        <a href='https://www.facebook.com'><FaFacebook size={24} /></a>
+                        <a href='https://www.instagram.com'><FaInstagram size={24} /></a>
                     </ul>
                 </nav>
             </section>
