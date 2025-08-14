@@ -32,7 +32,7 @@
         opacity: 0.8;
         color: var(--secondary-color-4);
         padding: 1rem;
-        border-radius: 8px;
+        border-radius: var(--rounded-corners-small);
     }
     img {
         grid-column-end: span 3;
