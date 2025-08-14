@@ -3,6 +3,8 @@
     flex-direction: column;
     gap: 20px;
     padding: 4rem;
+    background-color: var(--secondary-color-3);
+    color: var(--secondary-color-4);
 
     h1 {
         text-align: center;
