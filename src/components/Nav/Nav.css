@@ -25,34 +25,37 @@ nav ul {
 }
 
 .hamburger {
-  font-size: 2rem;
-  cursor: pointer;
-  display: none;
-  margin-right: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+    display: none;
+    margin-right: 1rem;
+    background: none;
+    border: none;
+    padding: 0;
 }
 
 @media (max-width: 599px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-header {
-    display: none;
-    flex-direction: column;
-    background-color: var(--primary-color-1);
-    border: var(--secondary-color-4) 1px solid;
-    position: absolute;
-    top: 2rem;
-    right: 0;
-    width: 200px;
-    padding: 1rem;
-
-    a {
-        color: var(--secondary-color-3);
+    .hamburger {
+        display: block;
     }
-  }
 
-  .nav-header.open {
-    display: flex;
-  }
+    .nav-header {
+        display: none;
+        flex-direction: column;
+        background-color: var(--primary-color-1);
+        border: var(--secondary-color-4) 1px solid;
+        position: absolute;
+        top: 2rem;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+
+        a {
+            color: var(--secondary-color-3);
+        }
+    }
+
+    .nav-header.open {
+        display: flex;
+    }
 }

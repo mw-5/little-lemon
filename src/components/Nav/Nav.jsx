@@ -8,12 +8,12 @@ export const Nav = ({ className }) => {
     return (
         <nav>
             { className === 'nav-header'
-            ? <div
+            ? <button
                 className="hamburger"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle navigation">
                 ☰
-            </div>
+            </button>
             : null }
             <ul
                 className={`${className} ${isOpen ? 'open' : ''}`}
