@@ -23,3 +23,36 @@ nav ul {
     flex-direction: column;
     gap: 0.5rem;
 }
+
+.hamburger {
+  font-size: 2rem;
+  cursor: pointer;
+  display: none;
+  margin-right: 1rem;
+}
+
+@media (max-width: 599px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-header {
+    display: none;
+    flex-direction: column;
+    background-color: var(--primary-color-1);
+    border: var(--secondary-color-4) 1px solid;
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+
+    a {
+        color: var(--secondary-color-3);
+    }
+  }
+
+  .nav-header.open {
+    display: flex;
+  }
+}

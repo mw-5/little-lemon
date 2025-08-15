@@ -1,11 +1,23 @@
-import { HomePage } from '../../pages/HomePage/HomePage';
 import './Nav.css';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export const Nav = ({ className }) => {
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
         <nav>
-            <ul className={className}>
+            { className === 'nav-header'
+            ? <div
+                className="hamburger"
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label="Toggle navigation">
+                ☰
+            </div>
+            : null }
+            <ul
+                className={`${className} ${isOpen ? 'open' : ''}`}
+                onClick={() => setIsOpen(false)}>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/#about">About</Link></li>
                 <li><Link to="/menu">Menu</Link></li>
