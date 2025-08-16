@@ -45,6 +45,7 @@ code {
 @media (max-width: 599px) {
   .container {
     grid-template-columns: repeat(4, 1fr);
+    --app-padding: 1%;
   }
 }
 
