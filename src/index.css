@@ -175,6 +175,7 @@ button {
   p {
       grid-column: 1 / -1;
       justify-self: center;
+      text-align: center;
   }
   p {
         color: var(--secondary-color-4);
