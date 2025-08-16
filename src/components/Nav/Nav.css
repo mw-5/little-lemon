@@ -40,15 +40,16 @@ nav ul {
     }
 
     .nav-header {
-        display: none;
+        display: flex;
         flex-direction: column;
         background-color: var(--primary-color-1);
         border: var(--secondary-color-4) 1px solid;
         position: absolute;
         top: 2rem;
-        right: 0;
+        right: -200px;
         width: 200px;
         padding: 1rem;
+        transition: right 0.3s;
 
         a {
             color: var(--secondary-color-3);
@@ -56,6 +57,6 @@ nav ul {
     }
 
     .nav-header.open {
-        display: flex;
+        right: 0;
     }
 }
