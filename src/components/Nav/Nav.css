@@ -47,10 +47,11 @@ nav ul {
         border: var(--secondary-color-4) 1px solid;
         position: absolute;
         top: 2rem;
-        right: -200px;
-        width: 200px;
+        right: 0;
+        width: 0px;
         padding: 1rem;
-        transition: right 0.3s;
+        visibility: hidden;
+        transition: width 0.3s, visibility 0.3s;
 
         a {
             color: var(--secondary-color-3);
@@ -58,6 +59,7 @@ nav ul {
     }
 
     .nav-header.open {
-        right: 0;
+        width: 200px;
+        visibility: visible;
     }
 }
