@@ -12,7 +12,8 @@ nav ul {
     }
 }
 
-.nav-header {
+.nav-header,
+.social-media-links {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;

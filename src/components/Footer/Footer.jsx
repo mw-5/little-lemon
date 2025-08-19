@@ -24,7 +24,7 @@ export const Footer = () => {
             <section>
                 <h4>Social Media</h4>
                 <nav>
-                    <ul className='nav-header'>
+                    <ul className='social-media-links'>
                         <a href='https://www.facebook.com'><FaFacebook size={24} /></a>
                         <a href='https://www.instagram.com'><FaInstagram size={24} /></a>
                     </ul>
