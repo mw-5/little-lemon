@@ -11,6 +11,8 @@ Front-End for a restaurant.
 
 ## Demo
 
+![Little Lemon demo](demo.gif)
+
 
 ## Table of contents
 
