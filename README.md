@@ -13,6 +13,8 @@ Front-End for a restaurant.
 
 ![Little Lemon demo](demo.gif)
 
+[Live demo](https://little-lemon-henna.vercel.app/)
+
 
 ## Table of contents
 
